@@ -1,9 +1,10 @@
+cftime
+dask[complete]
 fastapi
+fsspec
+gcsfs
 gunicorn
+s3fs
 uvicorn
 xarray>=2022.06
 zarr
-dask[complete]
-fsspec
-gcsfs
-s3fs

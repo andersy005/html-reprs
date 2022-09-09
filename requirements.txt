@@ -1,4 +1,5 @@
 fastapi
+gunicorn
 uvicorn
 xarray>=2022.06
 zarr

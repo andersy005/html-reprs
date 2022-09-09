@@ -1,7 +1,8 @@
 fastapi
 uvicorn
-gunicorn
 xarray>=2022.06
 zarr
-numcodecs
-dask[array]
+dask[complete]
+fsspec
+gcsfs
+s3fs

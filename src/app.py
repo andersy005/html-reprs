@@ -34,6 +34,8 @@ def xarray(
     import xarray as xr
     import zarr
 
+    error_message = f'An error occurred while fetching the data from URL: {url}'
+
     try:
 
         with xr.open_dataset(url, engine='zarr', chunks={}) as ds:
@@ -46,11 +48,11 @@ def xarray(
     except (zarr.errors.GroupNotFoundError, FileNotFoundError):
         return JSONResponse(
             status_code=status.HTTP_404_NOT_FOUND,
-            content={'message': f'Dataset not found. Check the URL: {url}'},
+            content={'detail': f'{error_message}. Dataset not found.'},
         )
 
     except PermissionError:
         return JSONResponse(
             status_code=status.HTTP_403_FORBIDDEN,
-            content={'message': f'Permission denied. Check the URL: {url}.'},
+            content={'detail': f'{error_message}. Permission denied.'},
         )
